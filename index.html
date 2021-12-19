@@ -8,7 +8,8 @@
 </head>
 <body>
     
-    <div id="webcam-container" class="video"></div>
+    <div style="border: 2px solid #52b459; width: 270px;
+    height: 350px;" id="webcam-container" ></div>
     <div id="label-container"></div>
     <h3  id="bottleshow"></h3>
 
@@ -23,9 +24,11 @@ video.setAttribute('autoplay', '');
 video.setAttribute('muted', '');
 video.setAttribute('playsinline', '');
 
-video.onloadedmetadata = function(e) {
-    video.play();
-};
+video: {
+    facingMode: {
+      exact: 'environment'
+    }
+  }
     // More API functions here:
     // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
