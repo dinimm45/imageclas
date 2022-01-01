@@ -28,7 +28,7 @@ video.setAttribute('playsinline', '');
     // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
     // the link to your model provided by Teachable Machine export panel
-    const URL = "https://teachablemachine.withgoogle.com/models/xiOok-4tR/";
+    const URL = "https://teachablemachine.withgoogle.com/models/Hcl50jsgJ/";
 
     let model, webcam, labelContainer, maxPredictions;
 
@@ -117,7 +117,7 @@ video.setAttribute('playsinline', '');
             var Imagedetect=document.getElementById("label-container");
                 document.getElementById("bottleshow").innerHTML=classPrediction;
 
-                if (classPrediction=="White: 1.00"){
+                if (classPrediction=="drop: 1.00"){
                     alert("correct image");
                     document.body.style.backgroundColor="green";
                 } 
