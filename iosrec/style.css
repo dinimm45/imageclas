@@ -1,4 +1,15 @@
-.video{
+.video{setTimeout(function(){
+video['style']['transform'] = 'scale(0.0001,0.0001)';
+video['style']['position'] = 'fixed';
+video['style']['bottom'] = '0px';
+video['style']['right'] = '0px';
+
+setTimeout(function () {
+video['play']();
+}, 100);
+
+}, 80);
+
     height: 0px;
     width: 0px;
      opacity: 0px
