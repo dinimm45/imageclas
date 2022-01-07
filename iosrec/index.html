@@ -1,17 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
   <title>Image test</title>
-  <link rel="stylesheet" href="styles.css">
   <!--<button type="button" onclick="init()">Start</button>-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     
-    <div style="border: 2px solid #52b459; width: 270px;
-    height: 350px;" id="webcam-container" ></div>
+    <div style="border: 2px solid #52b459; width: 100%;
+    height: 250px; left: 50%;" id="webcam-container"></div>
+
+<div class="loadingsoundclass">
+    <h1 id="text1" style="color:#52b459;"> Loading... </h1>
+    <p id="text3" style="color:#52b459;"> * You cant speak on the phone while recycling </hp>
+      <br>
+      <br>
+      <br>
+      <br>
+      <h1 id="text2" style="color:#52b459; display: none;"> Station ready</h1>
+      <button id="backbtn" style="  background-color: green; width: 180px;
+      height: 40px;
+      border-radius: 25px;
+      font-size: 20px; border: none;
+      color: white;" id="homebtn">Cancel</button>   
+    </div>
     <div id="label-container"></div>
     <h3  id="bottleshow"></h3>
+
+    
 
 
 
@@ -23,6 +42,41 @@ let video=document.getElementById("webcam-container");
 video.setAttribute('autoplay', '');
 video.setAttribute('muted', '');
 video.setAttribute('playsinline', '');
+
+
+var backbtn=document.getElementById("backbtn");
+
+    backbtn.addEventListener("click",function(){
+      window.location.href="home.html"
+    });
+
+    function load(){
+      document.getElementById("text2").style.display="block";
+    }
+    function hidetxt(){
+      document.getElementById("text1").style.display="none";
+      document.getElementById("text3").style.display="none";
+      document.getElementById("loading").style.display="none";
+
+    }
+
+    function overlay(){
+      document.getElementById("overlaystation").style.display="block";
+    }
+   
+
+   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+   const firebaseConfig = {
+    apiKey: "AIzaSyDTR4_vw3x8pTxIAiS8Y0-3T4APCwotpyg",
+    authDomain: "cycl-77b6c.firebaseapp.com",
+    databaseURL: "https://cycl-77b6c.firebaseio.com",
+    projectId: "cycl-77b6c",
+    storageBucket: "cycl-77b6c.appspot.com",
+    messagingSenderId: "139900263133",
+    appId: "1:139900263133:web:9c72ae1fd6569fe6a1d934",
+    measurementId: "G-VPV104NQQW"
+  };
+firebase.initializeApp(firebaseConfig);
 
     // More API functions here:
     // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
@@ -52,7 +106,7 @@ video.setAttribute('playsinline', '');
 
         // Convenience function to setup a webcam
         const flip = true; // whether to flip the webcam
-        const width = 200;
+        const width = 350;
         const height = 200;
         webcam = new tmImage.Webcam(width, height, flip); // width, height, flip
         await webcam.setup( { facingMode: "environment" } ); // request access to the webcam
@@ -117,7 +171,10 @@ video.setAttribute('playsinline', '');
             var Imagedetect=document.getElementById("label-container");
                 document.getElementById("bottleshow").innerHTML=classPrediction;
 
-                if (classPrediction=="drop: 1.00"){
+                load();
+                hidetxt();
+
+                if (classPrediction=="White: 1.00"){
                     alert("correct image");
                     document.body.style.backgroundColor="green";
                 } 
@@ -128,4 +185,5 @@ video.setAttribute('playsinline', '');
 
 </body>
 </html>
+
 
