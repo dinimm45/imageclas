@@ -1,0 +1,615 @@
+.body {
+  font-family:  Verdana, Geneva, Tahoma, sans-serif;
+
+    -youbkit-touch-callout: none; /* iOS Safari */
+      -youbkit-user-select: none;   /* Chrome 6.0+, Safari 3.1+, Edge & Opera 15+ */
+      -moz-user-select: none;       /* Firefox */
+      -ms-user-select: none;        /* IE 10+ and Edge */
+      user-select: none;
+      -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+-webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+-webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+}
+  /*hide google info on map*/
+  a[href^="http://maps.google.com/maps"]{display:none !important}
+  a[href^="https://maps.google.com/maps"]{display:none !important}
+  .gmnoprint a, .gmnoprint span, .gm-style-cc {
+    display:none;
+   }
+   .gmnoprint div {background:none !important;}
+   /*^hide google info on map*/
+
+
+    /*station style*/
+    #map{
+      z-index: 0;
+    }
+    .locationmapimg{
+      position : absolute;
+      display : inline;
+      top : 100px;
+      left : 100px;
+      z-index : 1;
+      background-color: white;
+      border-radius: 50px;
+      -ms-transform: rotate(20deg); /* IE 9 */
+      transform: rotate(35deg);
+      width: 35px;
+      height: 35px;
+      top:90%;
+      left: 85%;
+
+    }
+
+    .loadingsoundclass{
+
+      text-align: center;
+    margin: 0 auto;
+      padding: 0 20px 0 20px;
+      max-width: 900px;
+  
+    }
+
+    .loader {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 40%;
+      border: 6px solid white; /* Light grey */
+      border-top: 6px solid #52b459; /* Blue */
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 2s linear infinite;
+      z-index: 1;
+    }
+
+  
+  .lds-ellipsis{
+    top: 25%;
+    left: 40%;
+    display:none;
+
+  }
+  /* overlay for soundclass*/
+  #overlaystation {
+  display: contents;
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color:#52b459; /* Black background with opacity */
+  z-index: 1; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+  
+}
+
+
+/*station style*/
+
+.completedclass {
+  text-align: center;
+  margin: 0 auto;
+    padding: 0 20px 0 20px;
+    max-width: 900px;
+    
+}
+
+/*sideNav*/
+
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #52b459;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    border-radius: 2px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 5px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f0f0f0;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+  .closesidenav{
+
+    font-size:30px;cursor:pointer; 
+    color: #52b459;
+    width: 15px;
+    height: 5px;
+    
+  }
+
+  /*sideNav*/
+  
+  /* Style the active link (or home/logo) */
+  .active {
+    background-color: white;
+    color: white;
+  }
+  
+  
+  .rgstr{
+    background-color: white;
+    color: #52b459;
+    align-content: center;
+    position: fixed;
+    background-color: white;
+    border: 0px;
+    top: 70%;
+    left:32%;
+  
+  }
+  
+  .login-page {
+    width: 100%;
+  padding: 8% 0 0;
+  margin: auto;
+}
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  /*box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);*/
+  border-radius: 5px;
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 10px;
+
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: #43A047;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+  border-radius: 10px;
+}
+.form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+  border-radius: 10px;
+}
+.form .register-form {
+  display: none;
+}
+.logincointainer {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.logincointainer:before, .logincointainer:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.logincointainer .info {
+  margin: 50px auto;
+  text-align: center;
+}
+.logincointainer .info h1 {
+  margin: 0 0 15px;
+  padding: 0;
+  font-size: 36px;
+  font-weight: 300;
+  color: #1a1a1a;
+}
+.logincointainer .info span {
+  color: #4d4d4d;
+  font-size: 12px;
+}
+.logincointainer .info span a {
+  color: #000000;
+  text-decoration: none;
+}
+.logincointainer .info span .fa {
+  color: #EF3B3A;
+}
+  
+  .logo{
+  position: fixed;
+  left: 35%;
+  
+  }
+  .scannerbtn{
+    
+    background-color:#52b459;
+    color:white;
+    border:0px;
+    width: 200px;
+    height:30px;
+    border-radius:5px;
+    margin:3px;
+    box-shadow: 0px 6px 5px #ccc;
+  }
+  
+  
+  .hrcolor {
+      background-color: #008CBA;
+  }
+  
+  .html{
+    background: white;
+  }
+  
+  
+  .lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    height: 80px;
+  }
+  .lds-ellipsis div {
+    position: absolute;
+    bottom: 210px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #52b459;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+  .lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+  }
+  @keyframes lds-ellipsis1 {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes lds-ellipsis3 {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  @keyframes lds-ellipsis2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(24px, 0);
+    }
+  }
+  
+  /*under er for displayen for pantestedet og for kartet
+  /* Always set the map height explicitly to define the size of the div
+   * element that contains the map. */
+  #map {
+    width: 100%;
+   height: 91%;
+  }
+  /* Optional: Makes the sample page fill the window. */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #overlay {
+  position: bottom;
+  display: none;
+  width: 100%;
+  height: 45%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+  }
+  
+  #text{
+  position: absolute;
+  top: 130%;
+  left: 50%;
+  font-size: 50px;
+  color: white;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  }
+  
+  /* The Modal (background) */
+  .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  -webkit-animation-name: fadeIn; /* Fade in the background */
+  -webkit-animation-duration: 0.4s;
+  animation-name: fadeIn;
+  animation-duration: 0.4s
+  }
+  
+  /* Modal Content */
+  .modal-content {
+  position: fixed;
+  bottom: 0;
+  background-color: #fefefe;
+  width: 100%;
+  -webkit-animation-name: slideIn;
+  -webkit-animation-duration: 0.4s;
+  animation-name: slideIn;
+  animation-duration: 0.4s;
+  border-radius: 2%;
+  }
+  
+  /* The Close Button */
+  .close {
+  position: relative;
+  color: #52b459;
+  right: 50%;
+  font-size: 28px;
+  font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes slideIn {
+  from {bottom: -300px; opacity: 0}
+  to {bottom: 0; opacity: 1}
+  }
+  
+  @keyframes slideIn {
+  from {bottom: -300px; opacity: 0}
+  to {bottom: 0; opacity: 1}
+  }
+  
+  @-webkit-keyframes fadeIn {
+  from {opacity: 0}
+  to {opacity: 1}
+  }
+  
+  @keyframes fadeIn {
+  from {opacity: 0}
+  to {opacity: 1}
+  }
+  /*fjern video*/
+  .video{
+    margin-top: 20px;
+    position: relative;
+    top: 140px;
+    transform: translate(-50%,-50%);
+    width: 350px;
+    height: 350px;
+    left: 50%;
+  }
+  /*scanner animation*/
+  .scan-code {
+    position: absolute;
+    transform: translate(-50%,-50%);
+    width: 210px;
+    height: 180px;
+    z-index: 1;
+    left: 50%;
+    top:35%
+  }
+  
+  .scan-code__angle:before,
+  .scan-code__angle:after {
+    content: "";
+    position: absolute;
+
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-color: #52b459;
+    border-width: 0px;
+    z-index: 1;
+ 
+  }
+  
+  .scan-code__angle:before {
+    border-left-width: 6px;
+    left: 0;
+    
+  }
+  
+  .scan-code__angle:after {
+    border-right-width: 6px;
+    right: 0;
+
+
+  }
+  
+  .scan-code__angle--top:before,
+  .scan-code__angle--top:after {
+    top: 0;
+    border-top-width: 6px;
+
+
+  }
+  
+  .scan-code__angle--bottom:before,
+  .scan-code__angle--bottom:after {
+    bottom: 0;
+    border-bottom-width: 6px;
+  }
+  
+  .scan-code__angle--top:before {
+    border-top-left-radius: 4px;
+  }
+  
+  .scan-code__angle--top:after {
+    border-top-right-radius: 4px;
+  }
+  
+  .scan-code__angle--bottom:before {
+    border-bottom-left-radius: 4px;
+  }
+  
+  .scan-code__angle--bottom:after {
+    border-bottom-right-radius: 4px;
+  }
+  
+  body {
+    height: 100%;
+  }
+  
+  @-webkit-keyframes beam {
+    50% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes beam {
+    50% {
+      opacity: 0;
+    }
+  }
+  @-webkit-keyframes scanning {
+    50% {
+      -webkit-transform: translateY(75px);
+              transform: translateY(75px);
+    }
+  }
+  @keyframes scanning {
+    50% {
+      -webkit-transform: translateY(75px);
+              transform:
+    }
+  }
+
+  /*progress steps scanner.html */
+
+  .container {
+  width: 100%;
+}
+
+.progressbar {
+  margin-top: 20px;
+  counter-reset: step;
+}
+.progressbar li {
+  list-style: none;
+  display: inline-block;
+  width: 30.33%;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+}
+.progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 30px;
+  height: 30px;
+  line-height : 30px;
+  border: 1px solid #ddd;
+  border-radius: 100%;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  background-color: #fff;
+}
+.progressbar li:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #ddd;
+  top: 15px;
+  left: -50%;
+  z-index : -1;
+}
+.progressbar li:first-child:after {
+  content: none;
+}
+.progressbar li.activeprgrs {
+  color: green;
+}
+.progressbar li.activeprgrs:before {
+  border-color: #52b459;
+} 
+.progressbar li.activeprgrs + li:after {
+  background-color: #52b459;
+}
